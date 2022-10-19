@@ -28,7 +28,7 @@ resource "aws_launch_template" "main" {
     }
   }
 
-  user_data = filebase64(templatefile("${path.module}/userdata.sh", {
+  user_data = filebase64(templatefile(".terraform/module/${var.COMPONENT}/userdata.sh", {
     ENV                    = var.ENV
     COMPONENT              = var.COMPONENT
     DOCDB_ENDPOINT         = var.DOCDB_ENDPOINT
