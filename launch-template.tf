@@ -6,32 +6,27 @@ resource "aws_launch_template" "main" {
   image_id = data.aws_ami.main.image_id
 
   iam_instance_profile {
-    name = "test"
+    name = aws_iam_instance_profile.secrets.name
   }
   instance_market_options {
     market_type = "spot"
-  }
-  metadata_options {
-    http_endpoint               = "enabled"
-    http_tokens                 = "required"
-    http_put_response_hop_limit = 1
-    instance_metadata_tags      = "enabled"
-  }
-
-  monitoring {
-    enabled = true
-  }
-
-  network_interfaces {
-    associate_public_ip_address = true
   }
 
   tag_specifications {
     resource_type = "instance"
     tags = {
-      Name = "test"
+      Name = local.TAG_PREFIX
+      monitor = "yes"
     }
   }
 
-  user_data = filebase64("${path.module}/example.sh")
+  tag_specifications {
+    resource_type = "spot-instances-request"
+
+    tags = {
+      Name = local.TAG_PREFIX
+    }
+  }
+
+  //user_data = filebase64("${path.module}/example.sh")
 }
