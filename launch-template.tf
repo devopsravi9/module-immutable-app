@@ -38,4 +38,3 @@ resource "aws_launch_template" "main" {
     REDDIS_ENDPOINT        = var.REDDIS_ENDPOINT
   }))
 }
-//user_data = base64encode(templatefile("${path.module}/userdata.sh", {  
