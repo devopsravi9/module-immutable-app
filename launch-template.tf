@@ -2,7 +2,7 @@ resource "aws_launch_template" "main" {
   name = "${local.TAG_PREFIX}-launch-template"
 
   vpc_security_group_ids = [aws_security_group.main.id]
-  instance_type = var.INSTANCE_CLASS
+  instance_type = var.APP_INSTANCE_CLASS
   image_id = data.aws_ami.main.image_id
 
   iam_instance_profile {

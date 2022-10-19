@@ -1,7 +1,7 @@
 variable "COMPONENT" {}
 variable "ENV" {}
 variable "APP_VERSION" {}
-variable "INSTANCE_CLASS" {}
+variable "APP_INSTANCE_CLASS" {}
 variable "PRIVATE_ZONE_ID" {}
 variable "WORKSTATION_IP" {}
 variable "PROMETHEUS_IP" {}
