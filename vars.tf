@@ -29,17 +29,7 @@ variable "MYSQL_ENDPOINT" {
   default = "null"
 }
 
-variable "DOCDB_USER" {
-  default = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["DOCDB_USER"]
-}
 
-variable "DOCDB_PASS" {
-  default = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["DOCDB_PASS"]
-}
-
-variable "RABBITMQ_USER_PASSWORD" {
-  default = jsondecode(data.aws_secretsmanager_secret_version.secret.secret_string)["RABBITMQ_USER_PASSWORD"]
-}
 
 
 
