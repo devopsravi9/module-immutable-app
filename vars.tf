@@ -19,6 +19,16 @@ variable "ALLOW_SG_CIDR" {}
 variable "PUBLIC_LB_ARN" {}
 variable "PRIVATE_LISTNER_ARN" {}
 
+variable "DOCDB_ENDPOINT" {
+  default = "null"
+}
+variable "REDDIS_ENDPOINT" {
+  default = "null"
+}
+variable "MYSQL_ENDPOINT" {
+  default = "null"
+}
+
 
 
 
